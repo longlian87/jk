@@ -17,7 +17,7 @@ public class FastDocumentTest {
 			FastTestDocument document = new FastTestDocument(file);
 			Node nameNode = document.selectSingleNode("//document//name");
 			
-			assertEquals("longlian", nameNode.getText());
+			assertEquals("龙链", nameNode.getText());
 			System.out.println("//document//name value is "+nameNode.getText());
 		} catch (DocumentException e) {
 			e.printStackTrace();
