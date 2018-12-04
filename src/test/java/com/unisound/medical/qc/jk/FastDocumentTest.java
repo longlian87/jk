@@ -23,4 +23,9 @@ public class FastDocumentTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void test2() {
+		System.out.println("just a demo");
+	}
 }
