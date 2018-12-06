@@ -1,6 +1,7 @@
 package com.unisound.medical.qc.jk;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 import org.dom4j.Document;
@@ -22,6 +23,17 @@ public class FastTestDocument {
 		SAXReader reader = new SAXReader();
         Document document = reader.read(file);
 		this.document = document;
+	}
+	
+	public FastTestDocument(InputStream ins) throws DocumentException {
+		
+		this.absolutePath = "";
+		this.filename = "";
+		
+		SAXReader reader = new SAXReader();
+        Document document = reader.read(ins);
+		this.document = document;
+		
 	}
 	
 	/**
