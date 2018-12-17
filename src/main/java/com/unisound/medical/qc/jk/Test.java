@@ -9,7 +9,15 @@ import org.dom4j.Node;
 public class Test {
 
 	public static void main(String[] args) {
-		printXmlFile("/home/longlian/apps/work/docs");
+		printXmlFile("D:\\L\\reports");
+		
+		try {
+			Thread.sleep(1000*5);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("end of main.");
 	}
 	
 	private static void test1() {
