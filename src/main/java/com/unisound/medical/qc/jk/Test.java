@@ -17,7 +17,23 @@ public class Test {
 			e.printStackTrace();
 		}
 		
-		System.out.println("end of main.");
+		System.out.println("end of main1.");
+		
+		try {
+			Thread.sleep(1000*10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("end of main2.");
+		
+		try {
+			Thread.sleep(1000*10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("end of main3.");
 	}
 	
 	private static void test1() {
