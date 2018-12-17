@@ -9,7 +9,7 @@ import org.dom4j.Node;
 public class Test {
 
 	public static void main(String[] args) {
-		printXmlFile("D:\\L\\reports");
+		printXmlFile("/home/longlian/apps/work/docs");
 		
 		try {
 			Thread.sleep(1000*5);
