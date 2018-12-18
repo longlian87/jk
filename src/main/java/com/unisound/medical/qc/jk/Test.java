@@ -3,6 +3,7 @@ package com.unisound.medical.qc.jk;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -16,12 +17,16 @@ public class Test {
 		
 		String path = args[0];
 		String resultPath = args[1];
+		String sysoutPath = args[3];
 		
 		File resultFile = new File(resultPath + "/result.txt");
+		File sysoutFile = new File(sysoutPath + "/evaluate.log");
 		
 		try {
 			
 			PrintWriter out = new PrintWriter(resultFile, "utf-8");
+			PrintStream sysout = new PrintStream(sysoutFile, "utf-8");
+			System.setOut(sysout);
 			
 			printXmlFile(path, out); //("/home/longlian/apps/work/docs");
 			
