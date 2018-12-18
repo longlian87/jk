@@ -17,16 +17,20 @@ public class Test {
 		
 		String path = args[0];
 		String resultPath = args[1];
-		String sysoutPath = args[2];
-		
-		File resultFile = new File(resultPath + "/result.txt");
-		File sysoutFile = new File(sysoutPath + "/evaluate.log");
-		
+	
 		try {
 			
+			File resultFile = new File(resultPath + "/result.txt");
+			
+			
 			PrintWriter out = new PrintWriter(resultFile, "utf-8");
-			PrintStream sysout = new PrintStream(sysoutFile, "utf-8");
-			System.setOut(sysout);
+			
+			if(args.length >= 3) {
+				String sysoutPath = args[2];
+				File sysoutFile = new File(sysoutPath + "/evaluate.log");
+				PrintStream sysout = new PrintStream(sysoutFile, "utf-8");
+				System.setOut(sysout);
+			}
 			
 			printXmlFile(path, out); //("/home/longlian/apps/work/docs");
 			
