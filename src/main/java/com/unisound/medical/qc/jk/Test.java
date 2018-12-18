@@ -2,6 +2,10 @@ package com.unisound.medical.qc.jk;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 import org.dom4j.DocumentException;
 import org.dom4j.Node;
@@ -9,31 +13,28 @@ import org.dom4j.Node;
 public class Test {
 
 	public static void main(String[] args) {
-		printXmlFile("/home/longlian/apps/work/docs");
+		
+		String path = args[0];
+		String resultPath = args[1];
+		
+		File resultFile = new File(resultPath + "/result.txt");
 		
 		try {
-			Thread.sleep(1000*5);
-		} catch (InterruptedException e) {
+			
+			PrintWriter out = new PrintWriter(resultFile, "utf-8");
+			
+			printXmlFile(path, out); //("/home/longlian/apps/work/docs");
+			
+			out.flush();
+			out.close();
+			
+			Thread.sleep(1000*8);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println("end of main1.");
+		System.out.println("end of main. " + new Date());
 		
-		try {
-			Thread.sleep(1000*10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("end of main2.");
-		
-		try {
-			Thread.sleep(1000*10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("end of main3.");
 	}
 	
 	private static void test1() {
@@ -57,11 +58,16 @@ public class Test {
 	/**
 	 * 打印一个目录（文件）下面的所有xml文档
 	 * @param path
+	 * @throws UnsupportedEncodingException 
+	 * @throws FileNotFoundException 
 	 */
-	public static void printXmlFile(String path) {
+	public static void printXmlFile(String path, PrintWriter out) 
+			throws FileNotFoundException, UnsupportedEncodingException {
 		File fpath = new File(path);
+		
 		if(fpath.isFile()) {
 			printXmlFile(fpath);
+			out.append("找到文件："+fpath+"\n");
 			return;
 		}
 		
@@ -71,7 +77,7 @@ public class Test {
 		}
 		
 		for(File file : files) {
-			printXmlFile(file.getPath());
+			printXmlFile(file.getPath(), out);
 		}
 	}
 	
