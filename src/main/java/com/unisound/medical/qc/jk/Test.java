@@ -17,7 +17,7 @@ public class Test {
 		
 		String path = args[0];
 		String resultPath = args[1];
-		String sysoutPath = args[3];
+		String sysoutPath = args[2];
 		
 		File resultFile = new File(resultPath + "/result.txt");
 		File sysoutFile = new File(sysoutPath + "/evaluate.log");
